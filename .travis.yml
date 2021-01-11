@@ -24,17 +24,18 @@ matrix:
     - node_js: 'stable'
       script: npm install browserify && npm run browserify-test
  # exlcude unsupport power jobs node 0.10,0.12
-
 matrix:
   exclude:
-  -arch: ppc64le
-      - node_js: '0.12'  
-  -arch: ppc64le
-      - node_js: '0.12.0'
-  -arch: ppc64le
-      - node_js: '0.8'
-  -arch: ppc64le
-      - node_js: '0.8.6'
+    - arch: ppc64le
+      node_js: 0.12
+    - arch: ppc64le
+      node_js: '0.12.0'
+    - arch: ppc64le
+      node_js: 0.10
+    - arch: ppc64le
+      node_js: '0.8'
+    - arch: ppc64le
+      node_js: '0.8.6'
 before_install:
   - 'case "${TRAVIS_NODE_VERSION}" in 0.*) export NPM_CONFIG_STRICT_SSL=false ;; esac'
   - 'nvm install-latest-npm'
